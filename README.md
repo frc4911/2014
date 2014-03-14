@@ -14,4 +14,6 @@ scheduler zeroed out.
 1. dding commentlines help git system to use as reference point
 auto-avoid conflict
  * ex) //Payton ver.
- * // Aaron ver.
+ * // Aaron ver
+
+![payton](https://www.facebook.com/photo.php?fbid=185478614920382&set=a.114649878669923.16820.100003747354402&type=1&theater).
