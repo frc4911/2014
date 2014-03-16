@@ -1,4 +1,4 @@
-##GuitHub Rule
+####GuitHub Rule
 1. push at least once a day as long as any change is made
 2. pull first before push to make sure you are up-to-date
 3. Do not comment your commit with date; date is automatically
@@ -9,7 +9,7 @@ scheduler zeroed out.
 
 
 
-##GUitHub tips
+####GUitHub tips
 
 1. dding commentlines help git system to use as reference point
 auto-avoid conflict
