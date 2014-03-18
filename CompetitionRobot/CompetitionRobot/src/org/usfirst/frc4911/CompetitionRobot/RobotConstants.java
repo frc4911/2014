@@ -78,7 +78,7 @@ public class RobotConstants {
     public static final double vPerI = 5.002/204.6645;    
     
     //PNEUMATIC COLLECTOR
-    public static final int PNEUMATIC_COLLECTOR_SWITCH_CHANNEL_PORT = 6;//Digital IO ???
+    public static final int PNEUMATIC_COLLECTOR_SWITCH_CHANNEL_PORT = 5;//Digital IO ???
     public static final int PNEUMATIC_COLLECTOR_RELAY_CHANNEL_PORT = 1;//Relay
     public static final int PNEUMATIC_COLLECTOR_IN = 1;//Solenoid
     public static final int PNEUMATIC_COLLECTOR_OUT = 2;//Solenoid
