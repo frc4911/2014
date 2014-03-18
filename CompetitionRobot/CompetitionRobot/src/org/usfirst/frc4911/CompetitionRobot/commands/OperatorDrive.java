@@ -61,6 +61,7 @@ public class  OperatorDrive extends Command {
         System.out.println("Cocked:\t" + shooterSystem.COCKED);  
         System.out.println("Switch:\t" + shooterSystem.getSwitch());
         System.out.println("Ultrasonic:\t" + sensors.getUltrasonic());
+        System.out.println("Catapult:\t" + shooterSystem.getDegrees());
         System.out.println("=====================================================================");
     }
 

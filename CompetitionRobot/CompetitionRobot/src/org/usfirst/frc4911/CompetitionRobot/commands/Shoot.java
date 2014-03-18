@@ -23,7 +23,7 @@ public class Shoot extends Command {
     protected void initialize() {
         this.setInterruptible(false);
         if(shooter.COCKED){
-            shooter.GOAL_ANGLE += 60.0;
+            shooter.GOAL_ANGLE += 17.0;
         } else {
             shooter.GOAL_ANGLE += 0.0;//300.0 + 60.0;
         }

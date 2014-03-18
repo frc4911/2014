@@ -10,7 +10,7 @@ public class InitShooter extends Command {
     ShooterSystem shooter = Robot.shooter;
     public double startTime;
     public static final double GOAL_TIME = 5.0;
-    public static final double DELTA_DEGREES = 283;
+    public static final double DELTA_DEGREES = 280;
     public boolean hitLimitSwitch;
     public boolean isCocked;
     double limitSwitchEncoder;
