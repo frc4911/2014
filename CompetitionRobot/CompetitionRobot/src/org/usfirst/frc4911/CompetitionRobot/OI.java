@@ -35,10 +35,10 @@ public class OI {
         payloadButton1 = new JoystickButton(payloadJoy, 1);
         payloadButton1.whenPressed(new Shoot());
         
-        payloadButton2 = new JoystickButton(payloadJoy, 2);//Stoping Init Shooter
+        //payloadButton2 = new JoystickButton(payloadJoy, 2);//Stoping Init Shooter
         
-        payloadButton3 = new JoystickButton(payloadJoy, 3);
-        payloadButton3.whenPressed(new RotateShooter());
+        //payloadButton3 = new JoystickButton(payloadJoy, 3);
+        //payloadButton3.whenPressed(new RotateShooter());
         
         payloadButton4 = new JoystickButton(payloadJoy, 4);
         payloadButton4.whenPressed(new InitShooter());
@@ -46,8 +46,8 @@ public class OI {
         payloadButton7 = new JoystickButton(payloadJoy, 7);
         payloadButton7.whenPressed(new IncrementCatapult());
         
-        payloadButton8 = new JoystickButton(payloadJoy, 8);
-        payloadButton8.whenPressed(new InitShooter());
+        //payloadButton8 = new JoystickButton(payloadJoy, 8);
+        //payloadButton8.whenPressed(new InitShooter());
     }
     
     public Joystick getLeftJoy() {

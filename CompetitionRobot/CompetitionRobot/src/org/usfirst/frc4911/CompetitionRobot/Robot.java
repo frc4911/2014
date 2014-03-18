@@ -20,6 +20,7 @@ public class Robot extends IterativeRobot {
     //public static CameraSystem cameraSystem;
     public static CollectorSystem collectorSystem;
     public static PneumaticCollectorSystem pneumaticCollectorSystem;
+    public static RollerSystem rollerSystem;
 
     public void robotInit() {
 	RobotMap.init();
@@ -29,6 +30,7 @@ public class Robot extends IterativeRobot {
         //cameraSystem = new CameraSystem();
         collectorSystem = new CollectorSystem();
         pneumaticCollectorSystem = new PneumaticCollectorSystem();
+        rollerSystem = new RollerSystem();
         oi = new OI();// This MUST be here.	
         autonomousCommand = new AutonomousCommand();
         teleOp = new OperatorDrive();     

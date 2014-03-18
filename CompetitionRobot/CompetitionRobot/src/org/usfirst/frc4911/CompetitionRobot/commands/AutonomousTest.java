@@ -24,7 +24,7 @@ public class AutonomousTest extends CommandGroup {
         //addSequential(new InitShooter());
         addSequential(new DriveStraight(36.0));
         //Timer.delay(1.0);
-        addSequential(new CollectorDown());        
+        addSequential(new PneumaticCollectorDown());        
         addSequential(new Shoot());
     }
     
