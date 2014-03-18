@@ -31,19 +31,22 @@ public class Turn90Clockwise extends Command{
     }
     
     protected boolean isFinished(){  
+        /*//FOR DEBUGGING USE ONLY        
         if((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET){
             System.out.println("FAIL SAFE");
-        }
+        }*/
         return (sensors.getAngle() >= goalAngle) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET) ;
     }
     
     protected void end(){
-        System.out.println("Ending Angle:\t" + sensors.getAngle());
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("Ending Angle:\t" + sensors.getAngle());
         ((OperatorDrive)teleOp).setDriveSystemUsage(false);
         sensors.reset();
     }
     
     protected void interrupted(){    
-        System.out.println("Clockwise Interrupted===============================");
+        //FOR DEBUGGING USE ONLY
+        //.out.println("Clockwise Interrupted===============================");
     }
 }

@@ -19,12 +19,10 @@ public class ShooterSystem extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        //setDefaultCommand(new MySpecialCommand());
     }
     
     public boolean getSwitch(){
         return !Switch.get();
-        //return Switch.get();
     }
     public void resetSensors() {
         ShooterEncoder.reset();
@@ -46,7 +44,6 @@ public class ShooterSystem extends Subsystem {
     public void rotate(double power) {
         power = Math.max(power, 0.0);
         ShooterTalon.set(power);
-        System.out.println("Shooter Power:\t" + power);
     }
     
     public void stop() {

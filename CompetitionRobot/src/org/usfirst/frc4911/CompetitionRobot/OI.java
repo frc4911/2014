@@ -52,14 +52,5 @@ public class OI {
     public Joystick getPayloadJoy(){
         return payloadJoy;
     }
-    //// CREATING BUTTONS
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
-    // Button button = new DigitalIOButton(1);
-    
-    //// TRIGGERING COMMANDS WITH BUTTONS
-    // button.whenPressed(new ExampleCommand());
-    // button.whileHeld(new ExampleCommand());
-    // button.whenReleased(new ExampleCommand());
 }
 

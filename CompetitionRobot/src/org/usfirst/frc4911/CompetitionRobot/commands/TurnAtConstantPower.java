@@ -30,7 +30,7 @@ public class TurnAtConstantPower extends Command {
     }
 
     protected void end() {
-        System.out.println("Angles Turned:\t" + sensors.getAngle() + "\tdegrees");
+        //System.out.println("Angles Turned:\t" + sensors.getAngle() + "\tdegrees");
     }
 
     protected void interrupted() {

@@ -29,23 +29,24 @@ public class SetShooter extends Command {
 
     protected void execute() {
         power = 0.0;
-        if(!shooter.COCKED) power = 1.0;
+        if(!shooter.COCKED) {
+            power = 1.0;
+        }
         shooter.rotate(power);
         
     }
 
     protected boolean isFinished() {
+        
+        /*//FOR DEBUGGING USE ONLY
         if((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET){
             System.out.println("FAIL SAFE");
-        }
-        return (shooter.getDegrees() >= shooter.GOAL_ANGLE) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET);
-        //return (shooter.getSwitch()) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET);
+        }*/
+        return (shooter.getDegrees() >= shooter.GOAL_ANGLE) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET);        
     }
 
     protected void end() {
         shooter.stop();
-        System.out.println("SETSHOOTER ENDED");
-        //shooter.resetSensors();//If using a switch
         shooter.COCKED = true;
     }
 

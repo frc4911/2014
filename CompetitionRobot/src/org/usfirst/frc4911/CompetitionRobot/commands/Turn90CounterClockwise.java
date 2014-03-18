@@ -29,24 +29,28 @@ public class Turn90CounterClockwise extends Command{
     
     protected void execute(){
         driveSystem.drive(-1.0, 1.0);
-        System.out.println("GYRO:" + sensors.getAngle() + "\t" + "GoalAngle:" + goalAngle);
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("GYRO:" + sensors.getAngle() + "\t" + "GoalAngle:" + goalAngle);
     }
     
     protected boolean isFinished(){
+        /* //FOR DEBUGGING USE ONLY
         if((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET){
             System.out.println("FAIL SAFE");
-        }
+        }*/
         return (sensors.getAngle() <= goalAngle) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET);
     }
     
     protected void end(){
-        System.out.println("Ending Angle:\t" + sensors.getAngle());
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("Ending Angle:\t" + sensors.getAngle());
         ((OperatorDrive)teleOp).setDriveSystemUsage(false);
         sensors.reset();
     }
     
     protected void interrupted(){
-        System.out.println("CounterClockwise Interrupted========================");
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("CounterClockwise Interrupted========================");
     }
     
 }

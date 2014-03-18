@@ -14,7 +14,6 @@ public class  DriveStraight extends Command {
     
     private double kp;
     private double goalDistance;
-    //private double currentDistance;
     private double error;
     private double power;
     
@@ -34,29 +33,20 @@ public class  DriveStraight extends Command {
         error = 0.0;
         power = 0.0;
         startTime = Timer.getFPGATimestamp();
-        System.out.println("INITIALIZED");
     }
 
     protected void execute() {
         error = kp * sensors.getAngle();
         power = getRampedPower(goalDistance, sensors.getDistance());            
         driveSystem.drive(power - error , power + error);  
-        System.out.println("DriveStraight:execute() - run");
-        //driveSystem.drive(0.8, 0.8);
-        
-        //System.out.println("Encoders:\t" + sensors.getLeftDistance() + "\t" + sensors.getRightDistance() + "\tPower:\t" + power);
-        //System.out.println("Encoders:\t" + sensors.getDistance() + "\tPower:\t" + power);
     }
 
     protected boolean isFinished() {
         return Timer.getFPGATimestamp() - startTime >= 1.0;
-        //return (sensors.getDistance() >= goalDistance);
     }
 
     protected void end() {
         driveSystem.stop();
-        System.out.println("ENDED");
-        Timer.delay(3.0);
     }
 
     protected void interrupted() {

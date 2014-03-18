@@ -2,15 +2,10 @@ package org.usfirst.frc4911.CompetitionRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
-import org.usfirst.frc4911.CompetitionRobot.OI;
-import org.usfirst.frc4911.CompetitionRobot.RobotConstants;
-import org.usfirst.frc4911.CompetitionRobot.subsystems.CollectorSystem;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.ShooterSystem;
 
 public class Shoot extends Command {
-    CollectorSystem collecterSystem = Robot.collectorSystem;
     ShooterSystem shooter = Robot.shooter;
     public static final double TIME_THAT_TAKES_TO_SHOOT = 1.0;//Seconds
     public double startTime;
@@ -33,15 +28,6 @@ public class Shoot extends Command {
 
     protected void execute() {
         shooter.rotate(1.0);//0.65
-        
-        /*
-        if(collecterSystem.getPotentiometer() <= RobotConstants.COLLECTER_MIN_VOLT) {
-            if(shooter.COCKED)power = 1.0;
-            shooter.rotate(power);
-        }
-        else {
-            collecterSystem.runAxleForwards();
-        }*/
     }
 
     protected boolean isFinished() {
