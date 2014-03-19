@@ -1,0 +1,27 @@
+//purpose       : important postmark for history (ex ready to be used for competition) (GlacierPeak)
+//precondition  : code commited
+//postcondition : it adds version tag info
+ 
+//command name: tag
+
+//////////////
+git tag -a "annotation" -m "(msg)"
+ex1) git tag -a GP.v1.0 -m "code ready for GlacierPeak"
+ex2) git tag -a GP.v1.1 -m "additional bug fixed for GlacierPeak"
+
+////// this will show all the tags
+git tag
+
+////// this will show the changes
+git show annotation
+ex) git show GP.v1.1
+
+*******IMPORTANT EXCEPTION****
+//pushing tag is different. you need to push individually.
+
+//this is for indiviaul tag
+git push origin "tag annotation"
+
+//this is for all tags you created
+git push origin tag--
+
