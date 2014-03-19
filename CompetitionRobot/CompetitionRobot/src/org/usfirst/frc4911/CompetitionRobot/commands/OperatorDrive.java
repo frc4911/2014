@@ -13,6 +13,7 @@ public class  OperatorDrive extends Command {
     DriveSystem driveSystem = Robot.driveSystem;
     CollectorSystem collectorSystem = Robot.collectorSystem;
     ShooterSystem shooterSystem = Robot.shooter;
+   // RollerSystem rollerSystem = Robot.rollerSystem;
     Sensors sensors = Robot.sensors;
     Joystick leftJoystick = Robot.oi.getLeftJoy();
     Joystick rightJoystick = Robot.oi.getRightJoy();
@@ -40,17 +41,20 @@ public class  OperatorDrive extends Command {
         if(Math.abs(rightJoystick.getY()) >= 0.1) {
             rightPow = MathUtils.round(rightJoystick.getY() * RobotConstants.JOYSTICK_SENSITIVITY) / RobotConstants.JOYSTICK_SENSITIVITY;
         } 
-        if(Math.abs(payloadJoystick.getRawAxis(2)) >= 0.1) {
-            //axlePow = payloadJoystick.getRawAxis(2);
-            axlePow = MathUtils.round(payloadJoystick.getRawAxis(2) * RobotConstants.JOYSTICK_SENSITIVITY) / RobotConstants.JOYSTICK_SENSITIVITY;
-        } 
         if(!usingDriveSystem){
             driveSystem.drive(-leftPow, -rightPow);        
         }
         
+        //rollerSystem.run(paylo);
+        
+        /*
+        if(Math.abs(payloadJoystick.getRawAxis(2)) >= 0.1) {
+            //axlePow = payloadJoystick.getRawAxis(2);
+            axlePow = MathUtils.round(payloadJoystick.getRawAxis(2) * RobotConstants.JOYSTICK_SENSITIVITY) / RobotConstants.JOYSTICK_SENSITIVITY;
+        } 
         collectorSystem.runAxle(-axlePow);
         collectorSystem.runWheel(payloadJoystick.getRawAxis(3));
-        
+        */
         
         System.out.println("\t\tTIME:\t" + Timer.getFPGATimestamp());
         System.out.println("DriveTrain:\t" + (-leftPow) + "\t" + (-rightPow));

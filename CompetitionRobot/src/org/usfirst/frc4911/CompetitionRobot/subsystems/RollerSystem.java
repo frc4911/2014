@@ -8,7 +8,6 @@ public class RollerSystem extends Subsystem {
     private SpeedController CollectorWheelTalon = RobotMap.CollectorWheelTalon;
 
     public void initDefaultCommand() {
-        //setDefaultCommand(new IdleTime());
     }
     public void run(double power){
         CollectorWheelTalon.set(power);

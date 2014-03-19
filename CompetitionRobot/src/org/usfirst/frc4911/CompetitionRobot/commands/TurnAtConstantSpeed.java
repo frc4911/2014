@@ -44,12 +44,10 @@ public class TurnAtConstantSpeed extends Command {
     }
     
     protected void end(){
-        System.out.println("Ending Angle:\t" + sensors.getAngle());
         new OperatorDrive().start();
     }
     
     protected void interrupted(){    
-        System.out.println("TurnAtConstantSpeed Interrupted");
     }
     
     public void turnRatePIDInit(){
@@ -72,8 +70,6 @@ public class TurnAtConstantSpeed extends Command {
         double currTimeSliceSecs = currTime - lastTime;
         double currAngle = sensors.getAngle();
         double currentDPS = (currAngle - lastAngle) / currTimeSliceSecs;        
-        
-        //double currentDPS = myGyro.getRate();
         
         sum += currentDPS; 
         count++; 
@@ -102,8 +98,8 @@ public class TurnAtConstantSpeed extends Command {
             correction = -RobotConstants.MINIMUM_TURN_POWER;
             ratePIDintegral = 0;
         }
-        System.out.println("GoalDPS:\t" + goalRateDPS + "\tActualDPS:\t" + currentDPS +  "\tAverageDPS:\t" + (sum / count) + "\tPower:\t" + correction); 
-        System.out.println("\t\t\tP:\t" + p + "\tI:\t" + i + "\tD:\t" + d); 
+        //System.out.println("GoalDPS:\t" + goalRateDPS + "\tActualDPS:\t" + currentDPS +  "\tAverageDPS:\t" + (sum / count) + "\tPower:\t" + correction); 
+        //System.out.println("\t\t\tP:\t" + p + "\tI:\t" + i + "\tD:\t" + d); 
         
         lastGoalRateDPS = goalRateDPS;
         return correction;

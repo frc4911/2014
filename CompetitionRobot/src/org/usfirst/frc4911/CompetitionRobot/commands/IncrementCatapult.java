@@ -16,7 +16,6 @@ public class IncrementCatapult extends Command {
 
     protected void initialize() {
         startTime = Timer.getFPGATimestamp();
-        System.out.println("Initialized IncrementCatapult");
     }
 
     protected void execute() {
@@ -29,11 +28,9 @@ public class IncrementCatapult extends Command {
 
     protected void end() {
         shooter.stop();
-        System.out.println("Ended IncrementCatapult");
         shooter.resetSensors();
     }
 
     protected void interrupted() {
-        System.out.println("Interrupted IncrementCatapult");
     }
 }

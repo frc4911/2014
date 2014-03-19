@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType; 
 import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.camera.AxisCamera;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
     public static SpeedController RearLeftTalon;
@@ -22,7 +21,6 @@ public class RobotMap {
     
     public static Solenoid Solenoid;
     public static AxisCamera Camera;
-    //public static Solenoid GreenLight;
     public static DigitalInput Switch;
     public static AnalogChannel UltraSonicSensor;
     

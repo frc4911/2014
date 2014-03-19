@@ -4,11 +4,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4911.CompetitionRobot.commands.*;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.*;
 
-//The VM is configured to automatically run this class
 public class Robot extends IterativeRobot {
     public static Command autonomousCommand;
     public static Command teleOp;
@@ -17,8 +15,6 @@ public class Robot extends IterativeRobot {
     public static DriveSystem driveSystem;
     public static Sensors sensors;
     public static ShooterSystem shooter;
-    //public static CameraSystem cameraSystem;
-    public static CollectorSystem collectorSystem;
     public static PneumaticCollectorSystem pneumaticCollectorSystem;
     public static RollerSystem rollerSystem;
 
@@ -27,8 +23,6 @@ public class Robot extends IterativeRobot {
         driveSystem = new DriveSystem();
         sensors = new Sensors();
         shooter = new ShooterSystem();
-        //cameraSystem = new CameraSystem();
-        collectorSystem = new CollectorSystem();
         pneumaticCollectorSystem = new PneumaticCollectorSystem();
         rollerSystem = new RollerSystem();
         oi = new OI();// This MUST be here.	
@@ -81,6 +75,7 @@ public class Robot extends IterativeRobot {
     
     public void disabledPeriodic(){
         sensors.reset();
+        pneumaticCollectorSystem.start();
     }
     
 }

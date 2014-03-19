@@ -1,6 +1,5 @@
 package org.usfirst.frc4911.CompetitionRobot.commands;
 
-import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.*;
@@ -17,7 +16,8 @@ public class RotateShooter extends Command {
 
     protected void execute() {
         shooter.rotate(0.65);
-        System.out.println("Encoder:\t" + shooter.getDegrees());
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("Encoder:\t" + shooter.getDegrees());
     }
 
     protected boolean isFinished() {
@@ -26,7 +26,8 @@ public class RotateShooter extends Command {
 
     protected void end() {
         shooter.stop();
-        System.out.println("Encoder:\t" + shooter.getDegrees());
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("Encoder:\t" + shooter.getDegrees());
         shooter.resetSensors();
     }
 

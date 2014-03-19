@@ -13,7 +13,6 @@ public class PneumaticCollectorSystem extends Subsystem {
         start();
     }
     public void initDefaultCommand() {
-        //setDefaultCommand(new IdleTime());
     }
     public void start(){
         compressor.start();

@@ -44,8 +44,7 @@ public class  PointTurn extends Command {
         sensors.reset();
         power = 1.0;
         positionPIDInit();
-        turnRatePIDInit();
-        System.out.println("INITIALIZED");
+        turnRatePIDInit();        
     }
 
     protected void execute() {
@@ -62,8 +61,7 @@ public class  PointTurn extends Command {
     }
 
     protected void end() {
-        driveSystem.stop();
-        System.out.println("STOPPED");
+        driveSystem.stop();        
     }
 
     protected void interrupted() {
@@ -110,8 +108,9 @@ public class  PointTurn extends Command {
                 rate = Math.min(rate, -9.0);
             }
 
-            System.out.println("goalA\t" + goalAngle +  "\tcurrA\t" + currentAngle +  "\trate\t" + rate); 
-            System.out.println("    \t\t\tp\t" + (RobotConstants.KP_ANGLE * proportion) +  "\ti\t" + (RobotConstants.KI_ANGLE * anglePIDintegral) +  "\td\t" + (RobotConstants.KD_ANGLE * derivative));
+            //FOR DEBUGGING USE ONLY
+            //System.out.println("goalA\t" + goalAngle +  "\tcurrA\t" + currentAngle +  "\trate\t" + rate); 
+            //System.out.println("    \t\t\tp\t" + (RobotConstants.KP_ANGLE * proportion) +  "\ti\t" + (RobotConstants.KI_ANGLE * anglePIDintegral) +  "\td\t" + (RobotConstants.KD_ANGLE * derivative));
             
             iterationPower = turnRatePID(rate);
         }
@@ -141,8 +140,6 @@ public class  PointTurn extends Command {
         double currAngle = sensors.getAngle();
         double currentDPS = (currAngle - lastAngle) / currTimeSliceSecs;        
         
-        //double currentDPS = myGyro.getRate();
-        
         sum += currentDPS; 
         count++; 
           
@@ -170,8 +167,9 @@ public class  PointTurn extends Command {
             correction = -RobotConstants.MINIMUM_TURN_POWER;
             ratePIDintegral = 0;
         }
-        System.out.println("GoalDPS:\t" + goalRateDPS + "\tActualDPS:\t" + currentDPS +  "\tAverageDPS:\t" + (sum / count) + "\tPower:\t" + correction); 
-        System.out.println("\t\t\tP:\t" + p + "\tI:\t" + i + "\tD:\t" + d); 
+        //FOR DEBUGGING USE ONLY
+        //System.out.println("GoalDPS:\t" + goalRateDPS + "\tActualDPS:\t" + currentDPS +  "\tAverageDPS:\t" + (sum / count) + "\tPower:\t" + correction); 
+        //System.out.println("\t\t\tP:\t" + p + "\tI:\t" + i + "\tD:\t" + d); 
         
         lastGoalRateDPS = goalRateDPS;
         return correction;

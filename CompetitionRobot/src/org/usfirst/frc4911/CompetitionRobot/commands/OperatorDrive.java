@@ -11,7 +11,6 @@ import org.usfirst.frc4911.CompetitionRobot.subsystems.*;
 
 public class  OperatorDrive extends Command {
     DriveSystem driveSystem = Robot.driveSystem;
-    CollectorSystem collectorSystem = Robot.collectorSystem;
     PneumaticCollectorSystem pneumaticCollectorSystem = Robot.pneumaticCollectorSystem;
     RollerSystem rollerSysetm = Robot.rollerSystem;
     ShooterSystem shooterSystem = Robot.shooter;
@@ -35,7 +34,6 @@ public class  OperatorDrive extends Command {
     protected void execute() {
         double leftPow = 0;
         double rightPow = 0;
-        double axlePow = 0;
         if(Math.abs(leftJoystick.getY()) >= 0.1) {
             leftPow = MathUtils.round(leftJoystick.getY() * RobotConstants.JOYSTICK_SENSITIVITY) / RobotConstants.JOYSTICK_SENSITIVITY;  
         }
@@ -52,25 +50,17 @@ public class  OperatorDrive extends Command {
         } else if(payloadJoystick.getRawAxis(2) <= -0.8){
             pneumaticCollectorSystem.out();
         }
-        
         /*
-        if(Math.abs(payloadJoystick.getRawAxis(2)) >= 0.1) {
-            axlePow = MathUtils.round(payloadJoystick.getRawAxis(2) * RobotConstants.JOYSTICK_SENSITIVITY) / RobotConstants.JOYSTICK_SENSITIVITY;
-        }
-        collectorSystem.runAxle(-axlePow);
-        collectorSystem.runWheel(payloadJoystick.getRawAxis(3));
-        */
-        
         System.out.println("\t\tTIME:\t" + Timer.getFPGATimestamp());
         System.out.println("DriveTrain:\t" + (-leftPow) + "\t" + (-rightPow));
         System.out.println("Encoder:\t" + sensors.getLeftDistance() + "\t" + sensors.getRightDistance());
         System.out.println("Collector:\t" + (payloadJoystick.getRawAxis(2)) + "\tWheel:\t" + (payloadJoystick.getRawAxis(3)));
-        System.out.println("Potentiometer:\t" + collectorSystem.getPotentiometer() + "\tAngle:\t" + collectorSystem.getAngle());
         System.out.println("Gyro:\t" + sensors.getAngle());     
         System.out.println("Cocked:\t" + shooterSystem.COCKED);  
         System.out.println("Switch:\t" + shooterSystem.getSwitch());
         System.out.println("Ultrasonic:\t" + sensors.getUltrasonic());
         System.out.println("=====================================================================");
+        */
     }
 
     protected boolean isFinished() {

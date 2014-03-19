@@ -1,6 +1,5 @@
 package org.usfirst.frc4911.CompetitionRobot.commands;
 
-import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
@@ -10,7 +9,7 @@ public class InitShooter extends Command {
     ShooterSystem shooter = Robot.shooter;
     public double startTime;
     public static final double GOAL_TIME = 5.0;
-    public static final double DELTA_DEGREES = 283;
+    public static final double DELTA_DEGREES = 270;
     public boolean hitLimitSwitch;
     public boolean isCocked;
     double limitSwitchEncoder;
@@ -28,12 +27,10 @@ public class InitShooter extends Command {
     }
 
     protected void execute() {
-        shooter.rotate(0.65);
-        System.out.println("Encoder:\t" + shooter.getDegrees());
+        shooter.rotate(0.65);        
     }
 
     protected boolean isFinished() {
-        //return (shooter.getSwitch()) || (Timer.getFPGATimestamp() - startTime >= GOAL_TIME);
         if(!hitLimitSwitch) {
             hitLimitSwitch = (shooter.getSwitch() || Timer.getFPGATimestamp() - startTime >= GOAL_TIME);
             limitSwitchEncoder = shooter.getDegrees();
@@ -48,19 +45,8 @@ public class InitShooter extends Command {
 
     protected void end() {
         shooter.stop();
-        System.out.println("Encoder:\t" + shooter.getDegrees());
         shooter.resetSensors();
-        shooter.COCKED = true;
-        
-        /*//move certain degrees
-        double switchDegrees = shooter.getDegrees();
-        while(shooter.getDegrees() - switchDegrees <= DELTA_DEGREES){
-            System.out.println(shooter.getDegrees() - switchDegrees);
-            shooter.rotate(0.65);
-        }
-        shooter.stop();
-        shooter.resetSensors();
-        shooter.COCKED = true;*/
+        shooter.COCKED = true;        
     }
 
     protected void interrupted() {
