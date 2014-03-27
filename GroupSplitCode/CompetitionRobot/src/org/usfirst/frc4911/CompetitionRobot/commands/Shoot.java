@@ -35,7 +35,7 @@ public class Shoot extends Command {
 
     protected void execute() {
         power = 0.0;
-        if(!shooter.COCKED) {
+        if(shooter.COCKED) {
             power = 1.0;
         }
         shooter.rotate(power);//0.65

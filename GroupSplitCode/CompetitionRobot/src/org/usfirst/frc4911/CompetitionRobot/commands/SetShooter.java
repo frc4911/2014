@@ -64,7 +64,9 @@ public class SetShooter extends Command {
         prevTime = currentTime;
         predictedError = COCK_ANGLE / ( 700.0 / cycleTime);//700 / cycleTime gives fraction of the distance traveled
         error = shooter.GOAL_ANGLE - shooter.getDegrees();
-        return (shooter.getDegrees() >= shooter.GOAL_ANGLE) || (0.5 * predictedError >= error) || (currentTime - startTime >= TIME_THAT_TAKES_TO_SET);
+        return    (shooter.getDegrees() >= shooter.GOAL_ANGLE) 
+               || (0.5 * predictedError >= error) 
+               || (currentTime - startTime >= TIME_THAT_TAKES_TO_SET);
         //OLD CODE//return (shooter.getDegrees() >= shooter.GOAL_ANGLE) || ((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET);        
     }
 
