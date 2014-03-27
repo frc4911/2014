@@ -49,7 +49,7 @@ public class ShooterSystem extends Subsystem {
     }
     
     public double getDegrees() {
-        return ShooterEncoder.getDistance();// + offset;
+        return ShooterEncoder.getDistance() + offset;
     }
     
     public void rotate(double power) {

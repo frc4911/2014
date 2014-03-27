@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoFire extends CommandGroup{
     public AutoFire() {
         addParallel(new SurgeRollerIn(1.0));
-        addParallel(new PneumaticCollectorDown());
+        addSequential(new PneumaticCollectorDown());
         addSequential(new Shoot());
     }
     /*public AutoFire() {
