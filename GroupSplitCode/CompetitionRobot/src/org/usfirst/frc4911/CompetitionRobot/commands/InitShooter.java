@@ -23,6 +23,7 @@ public class InitShooter extends Command {
         startTime = Timer.getFPGATimestamp();
         hitLimitSwitch = false;
         isCocked = false;
+        shooter.setOffset(0.0);
         limitSwitchEncoder = 0.0;
     }
 

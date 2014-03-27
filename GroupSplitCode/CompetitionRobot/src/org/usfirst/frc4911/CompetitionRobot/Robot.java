@@ -54,6 +54,7 @@ public class Robot extends IterativeRobot {
         }
         pneumaticCollectorSystem.start();
         //new InitShooter().start();
+        shooter.setOffset(40.0);
         teleOp.start();
         //shooter.resetSensors();
     }
