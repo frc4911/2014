@@ -34,8 +34,11 @@ public class Shoot extends Command {
     }
 
     protected void execute() {
-        // add state check
-        shooter.rotate(1.0);//0.65
+        power = 0.0;
+        if(!shooter.COCKED) {
+            power = 1.0;
+        }
+        shooter.rotate(power);//0.65
         System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
     }
 
