@@ -31,7 +31,7 @@ public class  OperatorDrive extends Command {
 
     protected void initialize() {
         sensors.reset();
-        shooterSystem.resetSensors();//If autonomous is Successful and the shooter must be at 0
+        //shooterSystem.resetSensors();//If autonomous is Successful and the shooter must be at 0
         shooterSystem.statusInitialize();//If autonomous is Successful and the shooter must be at 0
         usingDriveSystem = false;
         
@@ -74,6 +74,7 @@ public class  OperatorDrive extends Command {
         System.out.println("Switch:\t" + shooterSystem.getSwitch());
         System.out.println("Shooter Encoder:\t" + shooterSystem.getDegrees());
         System.out.println("Catapult:\t" + shooterSystem.getDegrees());
+        System.out.println("Offset:\t" + shooterSystem.getOffset());
         //System.out.println("New Switch:\t" + digitalInput.get());
         System.out.println("Potentiometer:\t" + pneumaticCollectorSystem.getPot());
                         //System.out.println("Ultrasonic:\t" + sensors.getUltrasonic());

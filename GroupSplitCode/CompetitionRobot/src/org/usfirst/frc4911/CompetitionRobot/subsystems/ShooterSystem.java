@@ -12,6 +12,7 @@ public class ShooterSystem extends Subsystem {
     
     public static double GOAL_ANGLE;
     public static boolean COCKED;
+    private double offset;
     
     public ShooterSystem(){
         this.resetSensors();
@@ -28,6 +29,7 @@ public class ShooterSystem extends Subsystem {
         ShooterEncoder.reset();
         ShooterEncoder.setDistancePerPulse(RobotConstants.DEGREES_PER_PULSE);        
         GOAL_ANGLE = 0;
+        offset = 0.0;
         System.out.println("--------------------------------------------------------");
         System.out.println();
         System.out.println();
@@ -47,7 +49,7 @@ public class ShooterSystem extends Subsystem {
     }
     
     public double getDegrees() {
-        return ShooterEncoder.getDistance();
+        return ShooterEncoder.getDistance();// + offset;
     }
     
     public void rotate(double power) {
@@ -57,5 +59,13 @@ public class ShooterSystem extends Subsystem {
     
     public void stop() {
         ShooterTalon.set(0.0);
+    }
+    
+    public void setOffset(double offSet) {
+        this.offset = offSet;
+    }
+    
+    public double getOffset() {
+        return offset;
     }
 }
