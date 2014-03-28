@@ -23,6 +23,7 @@ public class Shoot extends Command {
 
     protected void initialize() {
         this.setInterruptible(false);
+        System.out.println("Catapult Status:\t" + shooter.COCKED);
         if(shooter.COCKED){
             shooter.GOAL_ANGLE += FIRE_DELTA;
         }
@@ -40,6 +41,9 @@ public class Shoot extends Command {
         }
         shooter.rotate(power);//0.65
         System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
+        System.out.println("Catapult Status:\t" + shooter.COCKED);
+        System.out.println("Catapult Switch:\t" + shooter.getSwitch());
+        System.out.println("\n\n\n\n\n============================================");
     }
 
     protected boolean isFinished() {

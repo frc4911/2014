@@ -32,7 +32,7 @@ public class  OperatorDrive extends Command {
     protected void initialize() {
         sensors.reset();
         shooterSystem.resetSensors();//If autonomous is Successful and the shooter must be at 0
-        shooterSystem.setOffset(40.0);
+        shooterSystem.setOffset(43.0);
         shooterSystem.statusInitialize();//If autonomous is Successful and the shooter must be at 0
         usingDriveSystem = false;
         

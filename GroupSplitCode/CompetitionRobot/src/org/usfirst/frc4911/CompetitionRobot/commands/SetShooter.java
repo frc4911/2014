@@ -42,15 +42,18 @@ public class SetShooter extends Command {
             power = 1.0;
         }
         shooter.rotate(power);
-        System.out.println("Setting Catapult:\t" + shooter.getDegrees());
+        System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
+        System.out.println("Catapult Status:\t" + shooter.COCKED);
+        System.out.println("Catapult Switch:\t" + shooter.getSwitch());
+        System.out.println("\n\n\n\n\n============================================");
     }
 
     protected boolean isFinished() {
-        
-        /*//FOR DEBUGGING USE ONLY
-        if((Timer.getFPGATimestamp() - startTime) >= TIME_THAT_TAKES_TO_SET){
-            System.out.println("FAIL SAFE");
-        }*/
+        currentTime = Timer.getFPGATimestamp();
+        //FOR DEBUGGING USE ONLY
+        if((currentTime - startTime) >= TIME_THAT_TAKES_TO_SET){
+            System.out.println("============================Timed Out=====================\n\n\n\n\n\n");
+        }
         
         //double currentTime = Timer.getFPGATimestamp();
         //cycleTime = currentTime - prevTime;
@@ -59,7 +62,7 @@ public class SetShooter extends Command {
         //return (predictedError + shooter.getDegrees() >= shooter.GOAL_ANGLE) || (Timer.getFPGATimestamp() - startTime >= TIME_THAT_TAKES_TO_SET);
         //
         
-        currentTime = Timer.getFPGATimestamp();
+        
         cycleTime =  currentTime - prevTime;
         prevTime = currentTime;
         predictedError = COCK_ANGLE / ( 996.9 / cycleTime);//700 / cycleTime gives fraction of the distance traveled
