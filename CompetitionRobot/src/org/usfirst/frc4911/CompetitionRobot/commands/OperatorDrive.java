@@ -37,12 +37,9 @@ public class  OperatorDrive extends Command {
         shooterSystem.setOffset(42.0);
         shooterSystem.statusInitialize();//If autonomous is Successful and the shooter must be at 0
         usingDriveSystem = false;
-<<<<<<< HEAD
         //setting new roller boolean
         usingRollerSystem = false;
-=======
-        
->>>>>>> Portland
+
         //digitalInput = new DigitalInput(6);
     }
 
@@ -59,15 +56,12 @@ public class  OperatorDrive extends Command {
             driveSystem.drive(-leftPow, -rightPow);        
         }
         
-<<<<<<< HEAD
         //new if statement for roller conflict
         if(!usingRollerSystem) {
             rollerSysetm.run(payloadJoystick.getRawAxis(3));
         }
         
-=======
-        rollerSysetm.run(payloadJoystick.getRawAxis(3));
->>>>>>> Portland
+
         if(payloadJoystick.getRawAxis(2) >= 0.8){
             pneumaticCollectorSystem.in();
         } else if(payloadJoystick.getRawAxis(2) <= -0.8){
@@ -115,7 +109,6 @@ public class  OperatorDrive extends Command {
     public void setDriveSystemUsage(boolean bool){
         usingDriveSystem = bool;
     }
-<<<<<<< HEAD
     
    
     //new roller boolean commands
@@ -126,6 +119,5 @@ public class  OperatorDrive extends Command {
     public void setRollerSystemUsage(boolean bool) {
         usingRollerSystem = bool;
     }
-=======
->>>>>>> Portland
+
 }
