@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##GuitHub Rule
 1. push at least once a day as long as any change is made
 2. pull first before push to make sure you are up-to-date
@@ -15,3 +16,12 @@ scheduler zeroed out.
 auto-avoid conflict
  * ex) //Payton ver.
  * // Aaron ver.
+=======
+#GuitHub Rule
+####This is a master code
+#### Always ready-to-be used
+
+* Cannot be contaminated
+* Tagging is required
+* Up-to-date ASAP
+>>>>>>> Portland
