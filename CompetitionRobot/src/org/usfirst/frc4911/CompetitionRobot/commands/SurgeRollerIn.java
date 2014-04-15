@@ -13,6 +13,10 @@ public class SurgeRollerIn extends Command {
     private RollerSystem roller = Robot.rollerSystem;
     private double startTime;
     private double goalTime;
+    
+    //new teleop object for roller conflict
+    Command teleop;
+
 
     public SurgeRollerIn(double seconds) {
         requires(Robot.rollerSystem);
@@ -20,8 +24,12 @@ public class SurgeRollerIn extends Command {
     }
 
     protected void initialize() {
+        teleop = Robot.teleOp;
         startTime = Timer.getFPGATimestamp();
         goalTime += startTime;
+        //setting roller system boolean
+        ((OperatorDrive)teleop).setRollerSystemUsage(true);
+
     }
 
     protected void execute() {
@@ -34,6 +42,9 @@ public class SurgeRollerIn extends Command {
 
     protected void end() {
         roller.stop();
+        //setting roller system boolean
+        ((OperatorDrive)teleop).setRollerSystemUsage(false);
+
     }
 
     protected void interrupted() {
