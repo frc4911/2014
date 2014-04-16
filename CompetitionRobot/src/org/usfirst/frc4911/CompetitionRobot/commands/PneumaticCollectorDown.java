@@ -10,8 +10,13 @@ public class PneumaticCollectorDown extends Command {
     private double startTime;
     
 
+    //public PneumaticCollectorDown(double time) {
+    //    requires(Robot.pneumaticCollectorSystem);
+    //}
+    
     public PneumaticCollectorDown() {
         requires(Robot.pneumaticCollectorSystem);
+        //this(1.0);
     }
 
     protected void initialize() {

@@ -39,7 +39,6 @@ public class  OperatorDrive extends Command {
         usingDriveSystem = false;
         //setting new roller boolean
         usingRollerSystem = false;
-
         //digitalInput = new DigitalInput(6);
     }
 
@@ -61,7 +60,6 @@ public class  OperatorDrive extends Command {
             rollerSysetm.run(payloadJoystick.getRawAxis(3));
         }
         
-
         if(payloadJoystick.getRawAxis(2) >= 0.8){
             pneumaticCollectorSystem.in();
         } else if(payloadJoystick.getRawAxis(2) <= -0.8){
@@ -72,23 +70,26 @@ public class  OperatorDrive extends Command {
             pneumaticCollectorSystem.out();
         }
         //double currTime = Timer.getFPGATimestamp();
-        time = Timer.getFPGATimestamp();
-        System.out.println("\t\tTIME:\t" + time);
-        System.out.println("Cycle Time:\t" + (time - prevTime));
-        prevTime = time;
-        //System.out.println("DriveTrain:\t" + (-leftPow) + "\t" + (-rightPow));
-        System.out.println("Encoder:\t" + sensors.getLeftDistance() + "\t" + sensors.getRightDistance());
-        //System.out.println("Collector:\t" + (payloadJoystick.getRawAxis(2)) + "\tWheel:\t" + (payloadJoystick.getRawAxis(3)));
-        //System.out.println("Gyro:\t" + sensors.getAngle());     
-        System.out.println("Cocked:\t" + shooterSystem.COCKED);  
-        System.out.println("Switch:\t" + shooterSystem.getSwitch());
-        System.out.println("Shooter Encoder:\t" + shooterSystem.getDegrees());
-        System.out.println("Catapult:\t" + shooterSystem.getDegrees());
-        System.out.println("Offset:\t" + shooterSystem.getOffset());
-        //System.out.println("New Switch:\t" + digitalInput.get());
-        System.out.println("Potentiometer:\t" + pneumaticCollectorSystem.getPot());
+        
+        if(!usingRollerSystem) {
+            time = Timer.getFPGATimestamp();
+            System.out.println("\t\tTIME:\t" + time);
+            System.out.println("Cycle Time:\t" + (time - prevTime));
+            prevTime = time;
+            //System.out.println("DriveTrain:\t" + (-leftPow) + "\t" + (-rightPow));
+            System.out.println("Encoder:\t" + sensors.getLeftDistance() + "\t" + sensors.getRightDistance());
+            //System.out.println("Collector:\t" + (payloadJoystick.getRawAxis(2)) + "\tWheel:\t" + (payloadJoystick.getRawAxis(3)));
+            System.out.println("Gyro:\t" + sensors.getAngle());     
+            System.out.println("Cocked:\t" + shooterSystem.COCKED);  
+            System.out.println("Switch:\t" + shooterSystem.getSwitch());
+            System.out.println("Shooter Encoder:\t" + shooterSystem.getDegrees());
+            System.out.println("Catapult:\t" + shooterSystem.getDegrees());
+            System.out.println("Offset:\t" + shooterSystem.getOffset());
+            //System.out.println("New Switch:\t" + digitalInput.get());
+            System.out.println("Potentiometer:\t" + pneumaticCollectorSystem.getPot());
                         //System.out.println("Ultrasonic:\t" + sensors.getUltrasonic());
-        System.out.println("=====================================================================");
+            System.out.println("=====================================================================");
+        }
         
     }
 
@@ -119,5 +120,4 @@ public class  OperatorDrive extends Command {
     public void setRollerSystemUsage(boolean bool) {
         usingRollerSystem = bool;
     }
-
 }
