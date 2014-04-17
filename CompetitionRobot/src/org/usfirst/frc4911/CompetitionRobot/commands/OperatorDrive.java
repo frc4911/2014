@@ -71,7 +71,7 @@ public class  OperatorDrive extends Command {
         }
         //double currTime = Timer.getFPGATimestamp();
         
-        if(!usingRollerSystem) {
+        if(RobotConstants.DEBUG_SWITCH) {
             time = Timer.getFPGATimestamp();
             System.out.println("\t\tTIME:\t" + time);
             System.out.println("Cycle Time:\t" + (time - prevTime));

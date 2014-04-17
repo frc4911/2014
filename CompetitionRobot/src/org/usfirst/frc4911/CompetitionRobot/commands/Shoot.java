@@ -3,6 +3,7 @@ package org.usfirst.frc4911.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
+import org.usfirst.frc4911.CompetitionRobot.RobotConstants;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.ShooterSystem;
 
 public class Shoot extends Command {
@@ -23,7 +24,7 @@ public class Shoot extends Command {
 
     protected void initialize() {
         this.setInterruptible(false);
-        System.out.println("Catapult Status:\t" + shooter.COCKED);
+        //System.out.println("Catapult Status:\t" + shooter.COCKED);
         if(shooter.COCKED){
             shooter.GOAL_ANGLE += FIRE_DELTA;
         }
@@ -40,10 +41,12 @@ public class Shoot extends Command {
             power = 1.0;
         }
         shooter.rotate(power);//0.65
-        System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
-        System.out.println("Catapult Status:\t" + shooter.COCKED);
-        System.out.println("Catapult Switch:\t" + shooter.getSwitch());
-        System.out.println("\n\n\n\n\n============================================");
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
+            System.out.println("Catapult Status:\t" + shooter.COCKED);
+            System.out.println("Catapult Switch:\t" + shooter.getSwitch());
+            System.out.println("\n\n\n\n\n============================================");
+        }
     }
 
     protected boolean isFinished() {
@@ -53,7 +56,9 @@ public class Shoot extends Command {
     protected void end() {
         shooter.stop();
         shooter.COCKED = false;
-        System.out.println("Post Shoot Catapult:\t" + shooter.getDegrees());
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("Post Shoot Catapult:\t" + shooter.getDegrees());
+        }
     }
     
     protected void interrupted() {

@@ -34,7 +34,7 @@ public class InitShooter extends Command {
         else {
             shooter.rotate(0.65);
         }
-        System.out.println();
+        //System.out.println();
     }
 
     protected boolean isFinished() {

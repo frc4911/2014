@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.ShooterSystem;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
+import org.usfirst.frc4911.CompetitionRobot.RobotConstants;
 
 public class SetShooter extends Command {
     ShooterSystem shooter = Robot.shooter;   
@@ -42,17 +43,21 @@ public class SetShooter extends Command {
             power = 1.0;
         }
         shooter.rotate(power);
-        System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
-        System.out.println("Catapult Status:\t" + shooter.COCKED);
-        System.out.println("Catapult Switch:\t" + shooter.getSwitch());
-        System.out.println("\n\n\n\n\n============================================");
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("Shooting Catapult:\t" + shooter.getDegrees());
+            System.out.println("Catapult Status:\t" + shooter.COCKED);
+            System.out.println("Catapult Switch:\t" + shooter.getSwitch());
+            System.out.println("\n\n\n\n\n============================================");
+        }
     }
 
     protected boolean isFinished() {
         currentTime = Timer.getFPGATimestamp();
         //FOR DEBUGGING USE ONLY
-        if((currentTime - startTime) >= TIME_THAT_TAKES_TO_SET){
-            System.out.println("============================Timed Out=====================\n\n\n\n\n\n");
+        if(RobotConstants.DEBUG_SWITCH) {
+            if((currentTime - startTime) >= TIME_THAT_TAKES_TO_SET){
+                System.out.println("============================Timed Out=====================\n\n\n\n\n\n");
+            }
         }
         
         //double currentTime = Timer.getFPGATimestamp();
@@ -76,10 +81,12 @@ public class SetShooter extends Command {
     protected void end() {
         shooter.stop();
         shooter.COCKED = true;
-        System.out.println("\n\n\n\n\n\n");
-        System.out.println("Total Time To COCK:\t" + (currentTime - startTime));
-        System.out.println("Position after COCKING:\t" + shooter.getDegrees());
-        System.out.println("\n\n\n\n\n\n");
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("\n\n\n\n\n\n");
+            System.out.println("Total Time To COCK:\t" + (currentTime - startTime));
+            System.out.println("Position after COCKING:\t" + shooter.getDegrees());
+            System.out.println("\n\n\n\n\n\n");
+        }
     }
 
     protected void interrupted() {

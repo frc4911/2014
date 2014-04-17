@@ -30,15 +30,17 @@ public class ShooterSystem extends Subsystem {
         ShooterEncoder.setDistancePerPulse(RobotConstants.DEGREES_PER_PULSE);        
         GOAL_ANGLE = 0;
         offset = 0.0;
-        System.out.println("--------------------------------------------------------");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("SHOOTER ENCODER RESET!!!!!");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("--------------------------------------------------------");
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("--------------------------------------------------------");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("SHOOTER ENCODER RESET!!!!!");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("--------------------------------------------------------");
+        }
     }
     public void statusInitialize(){
         COCKED = false;

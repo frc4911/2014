@@ -82,4 +82,7 @@ public class RobotConstants {
     public static final int PNEUMATIC_COLLECTOR_RELAY_CHANNEL_PORT = 1;//Relay
     public static final int PNEUMATIC_COLLECTOR_IN = 1;//Solenoid
     public static final int PNEUMATIC_COLLECTOR_OUT = 2;//Solenoid
+    
+    //DEBUG SWITCH
+    public static final boolean DEBUG_SWITCH = false;
 }

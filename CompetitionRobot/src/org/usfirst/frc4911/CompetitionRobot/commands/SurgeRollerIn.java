@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.*;
 import org.usfirst.frc4911.CompetitionRobot.Robot;
 import org.usfirst.frc4911.CompetitionRobot.subsystems.*;
 import org.usfirst.frc4911.CompetitionRobot.OI;
+import org.usfirst.frc4911.CompetitionRobot.RobotConstants;
 
 /**
  *
@@ -34,17 +35,21 @@ public class SurgeRollerIn extends Command {
         //goalTime = goalTime + startTime;
         //setting roller system boolean
         ((OperatorDrive)teleop).setRollerSystemUsage(true);
-        System.out.println("Start Time:\t" + startTime);
-        System.out.println("Goal Time:\t" + goalTime);
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("Start Time:\t" + startTime);
+            System.out.println("Goal Time:\t" + goalTime);
+        }
     }
 
     protected void execute() {
-        System.out.println("=====================================================");
-        System.out.println("Start Time:\t" + startTime);
-        System.out.println("Curr Time:\t" + Timer.getFPGATimestamp());
-        System.out.println("Goal Time:\t" + goalTime);
-        System.out.println("=====================================================");
-        roller.runForwards();
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("=====================================================");
+            System.out.println("Start Time:\t" + startTime);
+            System.out.println("Curr Time:\t" + Timer.getFPGATimestamp());
+            System.out.println("Goal Time:\t" + goalTime);
+            System.out.println("=====================================================");
+        }
+       roller.runForwards();
     }
 
     protected boolean isFinished() {
@@ -56,13 +61,15 @@ public class SurgeRollerIn extends Command {
         roller.stop();
         //setting roller system boolean
         ((OperatorDrive)teleop).setRollerSystemUsage(false);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("DONE AUTOFIRE!");
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("DONE AUTOFIRE!");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+        }
         
         
     }

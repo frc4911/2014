@@ -47,7 +47,9 @@ public class  DriveStraight extends Command {
 
     protected void end() {
         driveSystem.stop();
-        System.out.println(sensors.getLeftDistance() + "\t" + sensors.getRightDistance());
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println(sensors.getLeftDistance() + "\t" + sensors.getRightDistance());
+        }
     }
 
     protected void interrupted() {

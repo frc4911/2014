@@ -78,11 +78,15 @@ public class Robot extends IterativeRobot {
         teleOp = new OperatorDrive();
         Scheduler.getInstance().removeAll();
         //pneumaticCollectorSystem.start();
-        System.out.println("Ready To Roll Out!");
+        
+        if(RobotConstants.DEBUG_SWITCH) {
+            System.out.println("Ready To Roll Out!");
+        }
     }
     
     public void disabledPeriodic(){
-        sensors.reset();       
+        sensors.reset();
+        
     }
     
 }
