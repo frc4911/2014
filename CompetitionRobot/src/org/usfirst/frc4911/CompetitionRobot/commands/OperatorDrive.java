@@ -1,5 +1,6 @@
 package org.usfirst.frc4911.CompetitionRobot.commands;
 
+import edu.wpi.first.wpilibj.KinectStick;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Joystick;
@@ -19,6 +20,10 @@ public class  OperatorDrive extends Command {
     Joystick leftJoystick = Robot.oi.getLeftJoy();
     Joystick rightJoystick = Robot.oi.getRightJoy();
     Joystick payloadJoystick = Robot.oi.getPayloadJoy();
+    
+    KinectStick leftArm = Robot.oi.leftArm;
+    KinectStick rightArm = Robot.oi.rightArm;
+    
     double prevTime = 0.0;
     double time = 0.0;
     
@@ -43,7 +48,11 @@ public class  OperatorDrive extends Command {
         //digitalInput = new DigitalInput(6);
     }
 
-    protected void execute() {
+    protected void execute() {                
+        System.out.println("Left Arm Y:\t" + leftArm.getY() + "\t\t\tRight Arm Y:\t" + rightArm.getY());
+        driveSystem.runLeft(leftArm.getY());
+        driveSystem.runRight(rightArm.getY());
+        /*
         double leftPow = 0;
         double rightPow = 0;
         if(Math.abs(leftJoystick.getY()) >= 0.1) {
@@ -89,7 +98,7 @@ public class  OperatorDrive extends Command {
         System.out.println("Potentiometer:\t" + pneumaticCollectorSystem.getPot());
                         //System.out.println("Ultrasonic:\t" + sensors.getUltrasonic());
         System.out.println("=====================================================================");
-        
+        */
     }
 
     protected boolean isFinished() {

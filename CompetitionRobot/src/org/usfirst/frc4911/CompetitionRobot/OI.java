@@ -1,5 +1,6 @@
 package org.usfirst.frc4911.CompetitionRobot;
 
+import edu.wpi.first.wpilibj.KinectStick;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc4911.CompetitionRobot.commands.*;
@@ -20,6 +21,9 @@ public class OI {
     public JoystickButton payloadButton6;
     public JoystickButton payloadButton7;
     public JoystickButton payloadButton8;
+    
+    public KinectStick leftArm;
+    public KinectStick rightArm;
 
     public OI() {
         rightJoy = new Joystick(RobotConstants.JOYSTICK_RIGHT);
@@ -46,6 +50,9 @@ public class OI {
         
         payloadButton2 = new JoystickButton(payloadJoy, 2);
         payloadButton2.whenPressed(new SetShooter());
+        
+        leftArm = new KinectStick(1);
+        rightArm = new KinectStick(2);
     }
     
     public Joystick getLeftJoy() {

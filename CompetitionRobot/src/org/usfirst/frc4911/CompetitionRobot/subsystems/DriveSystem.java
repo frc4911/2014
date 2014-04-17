@@ -41,5 +41,13 @@ public class DriveSystem extends Subsystem {
     public void runFrontRight(){
         frontRightTalon.set(0.1);
     }
+    public void runRight(double power){
+        frontRightTalon.set(-power);
+        rearRightTalon.set(-power);
+    }
+    public void runLeft(double power){
+        frontLeftTalon.set(power);
+        rearLeftTalon.set(power);
+    }
 }
 
